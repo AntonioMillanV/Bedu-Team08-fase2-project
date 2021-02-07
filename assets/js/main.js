@@ -21,3 +21,16 @@ const createRowTask = () => {
     tasks.classList.add('generateTask')
     return tasks;
 }
+
+//CREACION DEL CONTENEDOR DE TAREAS
+const createTaskContent = () => {
+    const taskContent = document. createElement('section');
+    taskContent.innerHTML = '<ul class="todo-list"></ul>';
+    taskContent.classList.add('main');
+    return taskContent;
+}
+
+//AGREGANDO LA ESTRUCTURA DEL SITIO
+appContent.appendChild(createHeader());
+appContent.appendChild(createRowTask());
+appContent.appendChild(createTaskContent());
