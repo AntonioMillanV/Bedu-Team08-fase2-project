@@ -80,9 +80,9 @@ appContent.appendChild(createRowTask());
 appContent.appendChild(createTaskContent());
 
 
-
-
 //VARIABLE PARA INSTANCIAR NUEVAS TAREAS
 let todoList = new TodoList();
 const txtAgregar = document.querySelector('.add'),
     inputTask = document.querySelector('#inputTask');
+
+/************************************* */
