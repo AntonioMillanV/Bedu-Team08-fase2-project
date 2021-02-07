@@ -1,4 +1,48 @@
-//INICIO DEL CODIGO
+//CREACION DE TAREAS
+class Task {
+    static id = 0 //CONTADOR PARA EL ID
+    constructor(tarea) {
+        this.tarea = tarea;
+        this.id = Task.id += 1;
+        this.completado = false
+        this.creado = new Date()
+
+    }
+}
+
+//TODOLIST, ARREGLO PARA NUESTRA LISTA DE TAREAS
+class TodoList {
+
+    constructor() {
+        this.tasks = []
+    }
+
+    nuevoTodo(todo) {
+        this.tasks.push(todo);
+    }
+
+    eliminarTodo() {
+
+
+    }
+
+    marcarCompletado(id) {
+        for (let i of this.tasks) {
+            if (i.id == id) {
+                i.completado = !i.completado;
+                break
+            }
+        }
+    }
+
+    eliminarCompletados(id) {
+        this.tasks = this.tasks.filter(todo => todo.id != id)
+    }
+}
+
+
+
+//CREACION DEL HTML
 let appContent = document.querySelector('#app');
 //CREACION DEL HEADER
 const createHeader = () => {
@@ -24,7 +68,7 @@ const createRowTask = () => {
 
 //CREACION DEL CONTENEDOR DE TAREAS
 const createTaskContent = () => {
-    const taskContent = document. createElement('section');
+    const taskContent = document.createElement('section');
     taskContent.innerHTML = '<ul class="todo-list"></ul>';
     taskContent.classList.add('main');
     return taskContent;
@@ -34,3 +78,11 @@ const createTaskContent = () => {
 appContent.appendChild(createHeader());
 appContent.appendChild(createRowTask());
 appContent.appendChild(createTaskContent());
+
+
+
+
+//VARIABLE PARA INSTANCIAR NUEVAS TAREAS
+let todoList = new TodoList();
+const txtAgregar = document.querySelector('.add'),
+    inputTask = document.querySelector('#inputTask');
