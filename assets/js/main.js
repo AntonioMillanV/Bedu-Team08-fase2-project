@@ -109,8 +109,6 @@ appContent.appendChild(createTaskContent());
 let todoList = new TodoList();
 
 
-
-
 //REFERENCIAS AL HTML
 const list = document.querySelector('.todo-list'),
     txtAgregar = document.querySelector('.add'),
@@ -127,6 +125,7 @@ let crearTASK = (task) => {
 			<button class="destroy">X</button>
 		</div>
     `
+        //EVALUANDO TAREA COMPLETADA
     htmlTask.setAttribute("data-id", task.id); //OBTENIENDO EL ID DE LA TAREA
     task.completado ? htmlTask.classList.add('completado') : '';
     list.appendChild(htmlTask)
@@ -159,7 +158,7 @@ inputTask.addEventListener('keyup', (event) => {
         const newTask = new Task(inputTask.value);
         todoList.nuevoTodo(newTask);
         crearTASK(newTask);
-        inputTask.value = ''; //VACIAR EL IMPUT
+        inputTask.value = ''; //VACIAR EL InPUT
     }
 })
 
@@ -185,7 +184,7 @@ list.addEventListener('click', (event) => {
 //ELIMINAR TODOS TAREAS COMPLETADAS
 const deleteAll = document.querySelector('.borrar-todos');
 console.log(deleteAll);
-
+//hola
 deleteAll.addEventListener('click', () => {
     todoList.eliminarCompletados()
     for (let i = list.children.length - 1; i >= 0; i--) {
@@ -194,7 +193,7 @@ deleteAll.addEventListener('click', () => {
 
     };
 
-    console.log('hola');
+
 
 });
 /************************************* */
