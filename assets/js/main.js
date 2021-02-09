@@ -107,31 +107,33 @@ appContent.appendChild(createTaskContent());
 /********************************************************************** */
 //VARIABLE PARA INSTANCIAR NUEVAS TAREAS
 let todoList = new TodoList();
-const txtAgregar = document.querySelector('.add'),
-    inputTask = document.querySelector('#inputTask');
+
 
 
 
 //REFERENCIAS AL HTML
-const list = document.querySelector('.todo-list')
+const list = document.querySelector('.todo-list'),
+    txtAgregar = document.querySelector('.add'),
+    inputTask = document.querySelector('#inputTask');
 
 // CREACION DE TAREAS
 let crearTASK = (task) => {
-        let htmlTask = document.createElement('li') //CREACION HTML DEL LAS TAREAS
-        htmlTask.innerHTML =
-            `
+    let htmlTask = document.createElement('li') //CREACION HTML DEL LAS TAREAS
+    htmlTask.innerHTML =
+        `
 		<div class="view">
 		    <input class="toggle" type="checkbox" ${task.completado ? 'checked' : ''}>
 		    <label>${task.tarea}</label>
 			<button class="destroy">X</button>
-						</div>
+		</div>
     `
-        htmlTask.setAttribute("data-id", task.id); //OBTENIENDO EL ID DE LA TAREA
-        task.completado ? htmlTask.classList.add('completado') : '';
-        list.appendChild(htmlTask)
-        return htmlTask;
-    }
-    //RECUPERANDO LOCALSTORAGE
+    htmlTask.setAttribute("data-id", task.id); //OBTENIENDO EL ID DE LA TAREA
+    task.completado ? htmlTask.classList.add('completado') : '';
+    list.appendChild(htmlTask)
+    return htmlTask;
+}
+
+//RECUPERANDO LOCALSTORAGE
 todoList.tasks.forEach(element => {
     crearTASK(element);
 });
@@ -166,6 +168,7 @@ list.addEventListener('click', (event) => {
     let nameElement = event.target.localName, //OBTENIENDO EL TARGET DONDE APUNTA EL CLICK
         CompleteElement = event.target.parentElement.parentElement, //OBTENIENDO A TODO EL ELEMENTO LI
         idElement = CompleteElement.getAttribute('data-id') //OBTIENDO SU ID
+
 
     //MARCAR COMPLETADO
     if (nameElement.includes('input')) {
