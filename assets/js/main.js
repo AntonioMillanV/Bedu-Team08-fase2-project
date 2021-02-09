@@ -104,7 +104,7 @@ appContent.appendChild(createHeader());
 appContent.appendChild(createRowTask());
 appContent.appendChild(createTaskContent());
 
-
+/********************************************************************** */
 //VARIABLE PARA INSTANCIAR NUEVAS TAREAS
 let todoList = new TodoList();
 const txtAgregar = document.querySelector('.add'),
@@ -139,15 +139,16 @@ todoList.tasks.forEach(element => {
 //EVENTOS 
 //BOTON AGREGAR
 txtAgregar.addEventListener('click', () => {
-    if (inputTask.value.length > 0) {
-        console.log('dentro del task');
-        const newTask = new Task(inputTask.value);
-        todoList.nuevoTodo(newTask);
-        console.log(todoList);
-        crearTASK(newTask);
-        inputTask.value = '';
-    }
-})
+        if (inputTask.value.length > 0) {
+            console.log('dentro del task');
+            const newTask = new Task(inputTask.value);
+            todoList.nuevoTodo(newTask);
+            console.log(todoList);
+            crearTASK(newTask);
+            inputTask.value = '';
+        }
+    })
+    /********************************************************************** */
 
 //AGREGAR MEDIANTE LA TECLA ENTER
 inputTask.addEventListener('keyup', (event) => {
@@ -177,7 +178,7 @@ list.addEventListener('click', (event) => {
 });
 
 
-/************************************* */
+
 //ELIMINAR TODOS TAREAS COMPLETADAS
 const deleteAll = document.querySelector('.borrar-todos');
 console.log(deleteAll);
@@ -193,3 +194,4 @@ deleteAll.addEventListener('click', () => {
     console.log('hola');
 
 });
+/************************************* */
